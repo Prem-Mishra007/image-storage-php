@@ -1,0 +1,11 @@
+composer.phar
+/vendor/
+LICENSE
+README.md
+.gitignore
+.gitattributes
+.gitmodules
+Dockerfile
+.dockerignore
+.docker-compose.yml
+start.sh

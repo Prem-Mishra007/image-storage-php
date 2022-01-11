@@ -1,0 +1,80 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a40f2d6d26fbb8db6f5cfec8e14a1e3e",
+    "packages": [
+        {
+            "name": "dhaval/image-uploader",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DhavalKapil/image-uploader.git",
+                "reference": "23d59f670e3a07e7fb8d41457cec1e496497ff65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DhavalKapil/image-uploader/zipball/23d59f670e3a07e7fb8d41457cec1e496497ff65",
+                "reference": "23d59f670e3a07e7fb8d41457cec1e496497ff65",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/ImageUploader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhaval Kapil",
+                    "email": "me@dhavalkapil.com",
+                    "homepage": "https://dhavalkapil.com/",
+                    "role": "developer"
+                },
+                {
+                    "name": "Aditya Prakash",
+                    "email": "adiitya.adda@gmail.com",
+                    "homepage": "https://github.com/adiitya",
+                    "role": "developer"
+                }
+            ],
+            "description": "A simple and elegant PHP library for securely uploading images",
+            "homepage": "https://github.com/dhavalkapil/image-uploader",
+            "keywords": [
+                "customize",
+                "image",
+                "secure",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/DhavalKapil/image-uploader/issues",
+                "source": "https://github.com/DhavalKapil/image-uploader/tree/master"
+            },
+            "time": "2016-02-27T19:15:45+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "dhaval/image-uploader": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "platform-overrides": {
+        "php": "7.4"
+    },
+    "plugin-api-version": "2.1.0"
+}
