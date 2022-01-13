@@ -59,8 +59,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES[$file_input_name]) ) {
     }
     if (strlen($_POST["id"]) <= 10) {
         if ($imageUploader->exists($_POST["id"])) {
-            $imageUploader->delete($_POST["id"]);
-            echo json_encode(array("id" => $_POST["id"]));
+            if($imageUploader->delete($_POST["id"])){
+                echo json_encode(array("id" => $_POST["id"]));
+            } else {
+                echo json_encode(array("error" => "Could not delete image"));
+            }
         } else {
             echo json_encode(array("error" => "Not found"));
             http_response_code(404);
