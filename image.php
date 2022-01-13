@@ -59,7 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES[$file_input_name]) ) {
     }
     if (strlen($_POST["id"]) <= 10) {
         if ($imageUploader->exists($_POST["id"])) {
-            if($imageUploader->delete($_POST["id"])){
+            $image_path = $this->getImagePath($identifier);
+            if(unlink($image_path)){
                 echo json_encode(array("id" => $_POST["id"]));
             } else {
                 echo json_encode(array("error" => "Could not delete image"));
