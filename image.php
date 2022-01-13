@@ -96,6 +96,7 @@ elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
 }
 
 else {
-    echo json_encode(array("error" => "Not found"));
+    echo json_encode(array("error" => "Bad Request"));
+    http_response_code(400);
     die();
 }
