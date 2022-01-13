@@ -97,4 +97,4 @@ The idea here is that you can use the id to access the image.
 If you add cloudflare infront of the image-storage-server, make sure to add a page rule to cache everything with a very long TTL.
 
 ## Deleting Images
-One can delete an image by sending a post request to image-storage-app url/endpoint and providing the id of the image along with the 'SECRET' that has been set while deploying.  This method will also return the id of the image.
+One can delete an image by sending a post request to <full-url-to-the-image-storage-app>/image.php endpoint and providing the id of the image along with the 'SECRET' that has been set while deploying.  This method will also return the id of the image.
