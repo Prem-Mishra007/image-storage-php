@@ -7,7 +7,10 @@
 <p>
     <a href="https://github.com/therohitdas/image-storage-php">Download the source code or Dockerfile</a>
 </p>
-
+<form method="POST" action="image.php" enctype="multipart/form-data">
+    <input type="text" placeholder="enter the id to delete image" name="id" />
+    <input type="submit" value="Delete" />
+</form>
 <p>
     <input id="id" type="text" placeholder="enter the id to display image">
     <br>

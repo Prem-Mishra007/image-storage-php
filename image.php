@@ -50,18 +50,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES[$file_input_name]) ) {
         echo json_encode(array("error" => "Unauthorized"));
         die();
     }
-} elseif($_SERVER["REQUEST_METHOD"] =="POST" && isset($_POST['id'])){
+} elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     $allowed = (isset($_POST["secret"]) && $_POST["secret"] == $secret);
     $allowed = $allowed || (in_array($origin, $allowed_hosts));
-    if(!$allowed){
+    if (!$allowed) {
         echo json_encode(array("error" => "Unauthorized"));
         die();
     }
-    if (strlen($_POST["id"]) <= 10) {
-        if ($imageUploader->exists($_POST["id"])) {
-            $image_path = $this->getImagePath($identifier);
-            if(unlink($image_path)){
-                echo json_encode(array("id" => $_POST["id"]));
+    if (strlen($id = $_POST["id"]) <= 10) {
+        if ($imageUploader->exists($id)) {
+            $image_name = "";
+            if ($salt === null) {
+                $image_name = md5($id);
+            } else {
+                $image_name = md5($id . $salt);
+            }
+
+            $image_path = $filePath . DIRECTORY_SEPARATOR . $image_name;
+            if (unlink($image_path)) {
+                echo json_encode(array("id" => $id));
             } else {
                 echo json_encode(array("error" => "Could not delete image"));
             }
