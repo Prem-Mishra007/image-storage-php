@@ -23,6 +23,8 @@ $origin = $origin[2];
 $origin = explode(":", $origin);
 $origin = $origin[0];
 
+error_log($origin);
+
 $imageUploader = new ImageUploader();
 $imageUploader->setPath($filePath);
 $imageUploader->setSalt($salt);
@@ -84,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES[$file_input_name]) ) {
 }
 elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
     // allowed host check
-    if (!in_array($origin, $allowed_hosts)) {
+    if ($origin !== false && (!in_array($origin, $allowed_hosts))) {
         echo json_encode(array("error" => "Unauthorized"));
         die();
     }
