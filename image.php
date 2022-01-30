@@ -9,6 +9,7 @@ $file_input_name = getenv("FILE_INPUT_NAME");
 $allowed_hosts = getenv("ALLOWED_HOST");
 $allowed_hosts = strtolower($allowed_hosts);
 $allowed_hosts = explode(",", $allowed_hosts);
+$disable_host_check = getenv("DISABLE_HOST_CHECK") === "true";
 
 if (array_key_exists('HTTP_ORIGIN', $_SERVER)) {
     $origin = $_SERVER['HTTP_ORIGIN'];
@@ -86,9 +87,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES[$file_input_name]) ) {
 }
 elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
     // allowed host check
-    if ($origin !== false && (!in_array($origin, $allowed_hosts))) {
-        echo json_encode(array("error" => "Unauthorized"));
-        die();
+    if (!$disable_host_check){
+        if ($origin !== false && (!in_array($origin, $allowed_hosts))) {
+            echo json_encode(array("error" => "Unauthorized"));
+            die();
+        }
     }
     if (isset($_GET["id"]) && strlen($_GET["id"]) <= 10) {
         if ($imageUploader->exists($_GET["id"])) {
